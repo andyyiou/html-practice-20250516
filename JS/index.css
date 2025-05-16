@@ -1,0 +1,21 @@
+#count {    
+    font-size: 2em;
+    color: #6767ce;
+    margin: 20px;
+    border-style: solid;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table th {
+    background-color: #f2f2f2;
+    text-align: left;
+}

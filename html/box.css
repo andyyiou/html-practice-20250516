@@ -1,0 +1,24 @@
+#boxMargin{
+    border-style: dashed;
+    margin: 20px;
+    text-align: center;
+}
+#boxBorder{
+    border-style:  solid;
+    margin: 20px;
+    text-align: center;
+    background-color: yellow;
+}
+#boxPadding{
+    border-style: solid;
+    margin: 20px;
+    text-align: center;
+    background-color: white;
+   
+}
+#boxContent{
+    border-style: dashed;
+    margin: 20px;
+    text-align: center;
+    padding-bottom: 150px;
+}
