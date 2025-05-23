@@ -14,6 +14,7 @@
 // const cMonth = new Date(y ,m, 0).getDate(); 
 //取得可以下拉的年份物件
 const currentYear = new Date().getFullYear();
+//console.log(currentYear);
 const startYear = currentYear - 100;
 const endYear = currentYear + 25;
 const yearSelect = document.getElementById('year');
@@ -54,13 +55,22 @@ const daySelect = document.createElement('select');
             updateDays();
             document.getElementById('day').replaceWith(daySelect);
 
+            
+            document.getElementById('year').value = currentYear;
+            document.getElementById('month').value = new Date().getMonth() + 1;
+            document.getElementById('day').value = new Date().getDate();           
+
 //產生日曆
 const calendarDiv = document.getElementById('calendar');
 
 const renderCalendar = () => {
+    const currentYear1 = new Date().getFullYear();
     // Get the selected year and month
     const year = parseInt(document.getElementById('year').value);
+    
     const month = parseInt(document.getElementById('month').value) - 1;
+    const day1 = parseInt(document.getElementById('day').value);
+    //console.log(year, month);
     // Get the first day of the month and the number of days in the month
     const firstDay = new Date(year, month, 1).getDay();
     // get the number of days in the month
@@ -86,16 +96,23 @@ const renderCalendar = () => {
         const emptyCell = document.createElement('td');
         row.appendChild(emptyCell);
     }
+    //console.log ('daysInMonth' + daysInMonth);
     // Fill in the days of the month
     for (let day = 1; day <= daysInMonth; day++) {
         if ((firstDay + day - 1) % 7 === 0 && day !== 1) {
             table.appendChild(row);
             row = document.createElement('tr');
         }
-
+        
+        //console.log(year, month, day);
         const cell = document.createElement('td');
         cell.textContent = day;
+        if (day === day1 ) {
+           cell.className= 'HighlightToday'; // Highlight today's date
+        
+        }
         row.appendChild(cell);
+
     }
     // Fill in empty cells for the last row
     table.appendChild(row);
@@ -103,7 +120,11 @@ const renderCalendar = () => {
     calendarDiv.appendChild(table);
 };
 
+
+//
+
 document.getElementById('year').addEventListener('change', renderCalendar);
 document.getElementById('month').addEventListener('change', renderCalendar);
-
+document.getElementById('day').addEventListener('change', renderCalendar);
+//console.log(currentYear);
 renderCalendar();

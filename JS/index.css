@@ -19,3 +19,12 @@ table th {
     background-color: #f2f2f2;
     text-align: left;
 }
+
+.HighlightToday {
+    background-color: yellow;
+    
+}   
+
+.subtotal {
+    text-align: right;
+}
